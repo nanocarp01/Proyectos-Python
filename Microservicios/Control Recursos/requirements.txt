@@ -1,0 +1,2 @@
+psutil==5.9.7
+secure-smtplib==0.1.1
