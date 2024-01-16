@@ -24,13 +24,13 @@ def enviar_correo(destinatario, asunto, cuerpo):
     # Configura el servidor SMTP
     servidor_smtp = "smtp.gmail.com"
     puerto_smtp = 465
-    usuario_smtp = "mailpruebaenvio557@gmail.com"
-    contrasena_smtp = "ioqtowvtcvvpoofm"
+    usuario_smtp = "mail"
+    contrasena_smtp = "contraseña"
 
     # Configura el mensaje
     mensaje = MIMEMultipart()
     mensaje['From'] = usuario_smtp
-    mensaje['To'] = 'fernandoheredia33@gmail.com'
+    mensaje['To'] = 'mail destino'
     mensaje['Subject'] = asunto
     mensaje.attach(MIMEText(cuerpo, 'plain'))
 
@@ -42,7 +42,7 @@ def enviar_correo(destinatario, asunto, cuerpo):
                 server.login(usuario_smtp, contrasena_smtp)
 
                 # Enviar correo electrónico
-                server.sendmail(usuario_smtp, 'fernandoheredia33@gmail.com', mensaje.as_string())
+                server.sendmail(usuario_smtp, 'mail destino', mensaje.as_string())
     except smtplib.SMTPServerDisconnected as e:
             print(f"Error de conexión SMTP: {e}")
     except Exception as e:
@@ -104,8 +104,8 @@ def calcular_deuda_y_enviar_correo():
     # Configura la conexión a la base de datos
     conexion = mysql.connector.connect(
         host="localhost",
-        user="nano",
-        password="France2016@Rbcarp01",
+        user="user",
+        password="passbasededatos",
         database="gestionClientes"
     )
 
